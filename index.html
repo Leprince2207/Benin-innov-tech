@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Benin Innov Tech, solutions informatiques à Abomey-Calavi, Bénin."><title>Benin Innov Tech — Intelligence numérique</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono&family=Manrope:wght@400;500;600;700;800&display=swap');
+:root{--ink:#250344;--blue:#510079;--cyan:#00a8e8;--lime:#f4ad18;--paper:#fbf8ff;--muted:#a3afc7;--line:rgba(244,173,24,.22)}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;padding:0;background:var(--ink);color:#f6f8ff;font-family:Manrope,Arial,sans-serif;overflow-x:hidden}.shell{width:min(1180px,calc(100% - 48px));margin:auto}a{color:inherit;text-decoration:none}
+#universe{position:absolute;inset:0;width:100%;height:100%;opacity:.72}.hero{position:relative;overflow:hidden;background:radial-gradient(circle at 70% 36%,#510079 0,transparent 27%),radial-gradient(circle at 18% 80%,#006897 0,transparent 28%),#250344;margin:0;padding:0}.hero>*:not(canvas){position:relative;z-index:1}nav{height:80px;display:flex;align-items:center;justify-content:space-between;padding-top:10px}.brand{display:flex;align-items:center}.logo-frame{display:flex;align-items:center;width:158px;height:65px;padding:4px 7px;background:white;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,.25);overflow:hidden}.logo-frame img{width:100%;height:100%;object-fit:contain}.menu{display:flex;align-items:center;gap:27px;color:#e5d9f2;font-size:.85rem;font-weight:700}.nav-cta{border:1px solid rgba(244,173,24,.65);border-radius:30px;padding:10px 16px;color:var(--lime)}
+
+.lang-switch{display:inline-flex;align-items:center;background:rgba(255,255,255,.08);border:1px solid var(--line);border-radius:20px;padding:2px;cursor:pointer;font-family:"DM Mono",monospace;font-size:.78rem}
+.lang-btn{padding:4px 10px;border-radius:16px;color:#b7c3da;transition:.2s}
+.lang-btn.active{background:var(--lime);color:#0a1624;font-weight:700}
+
+.hero-main{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center;padding:40px 0 60px}.kicker,.mono{font-family:"DM Mono",monospace}.kicker{display:flex;align-items:center;gap:9px;color:var(--cyan);font-size:.73rem;letter-spacing:.14em;text-transform:uppercase}.pulse{width:8px;height:8px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 7px rgba(197,255,112,.14);animation:pulse 2s infinite}@keyframes pulse{50%{box-shadow:0 0 0 14px transparent}}h1{font-size:clamp(3.2rem,6.1vw,5.6rem);letter-spacing:-.073em;line-height:.98;margin:15px 0 20px;max-width:700px}
+.grad{color:var(--lime)}
+.intro{max-width:595px;color:#b7c3da;font-size:1.08rem;line-height:1.75}.actions{display:flex;gap:13px;flex-wrap:wrap;margin-top:32px}.button{display:inline-flex;align-items:center;gap:10px;border-radius:8px;padding:14px 19px;font-size:.88rem;font-weight:800;transition:transform .2s,background .2s;border:none;cursor:pointer}.button:hover{transform:translateY(-3px)}.primary{background:var(--lime);color:#0a1624}.secondary{border:1px solid var(--line);background:rgba(255,255,255,.04)}.arrow{font-size:1.25rem;line-height:.7}
+.console{position:relative;border:1px solid rgba(244,173,24,.35);border-radius:18px;padding:17px;background:linear-gradient(135deg,rgba(81,0,121,.88),rgba(24,1,52,.91));box-shadow:0 28px 70px rgba(0,0,0,.45);transform:perspective(1100px) rotateY(-7deg) rotateX(3deg);animation:float 5s ease-in-out infinite}@keyframes float{50%{transform:perspective(1100px) rotateY(-4deg) rotateX(1deg) translateY(-12px)}}.console-top{display:flex;justify-content:space-between;color:#d6bee8;font:12px "DM Mono"}.dots i{display:inline-block;width:7px;height:7px;margin-left:5px;border-radius:50%;background:#00a8e8}.dots i:first-child{background:#f4ad18}.dots i:nth-child(2){background:#9c41c7}.screen{margin-top:18px;padding:24px;background:rgba(19,1,43,.76);border-radius:11px}.screen small{font:11px "DM Mono";color:var(--cyan)}.status{display:flex;align-items:center;justify-content:space-between;margin:20px 0 25px;font-size:.91rem}.status strong{font-size:1.55rem}.bar{height:8px;border-radius:9px;background:#3c185a;overflow:hidden}.bar i{display:block;width:84%;height:100%;background:linear-gradient(90deg,var(--cyan),var(--lime));border-radius:inherit;animation:load 2.5s ease-out}@keyframes load{from{width:0}}.mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:18px}.mini{padding:14px;background:#34105d;border:1px solid #643087;border-radius:8px;font-size:.74rem;color:#eadcf5}.mini b{display:block;font-size:1.2rem;color:#fff;margin-top:5px}.hero-foot{border-top:1px solid var(--line);padding:19px 0;display:flex;justify-content:space-between;color:#c9b4dc;font:11px "DM Mono";letter-spacing:.05em}
+.strip{overflow:hidden;background:var(--lime);color:#340052;white-space:nowrap;padding:14px 0;font:700 .82rem "DM Mono";letter-spacing:.07em}.ticker{display:inline-block;animation:slide 18s linear infinite}@keyframes slide{to{transform:translateX(-50%)}}section{padding:118px 0}.overline{font:500 .72rem "DM Mono";letter-spacing:.13em;color:#7c4b9c;text-transform:uppercase}h2{font-size:clamp(2.2rem,4.2vw,4rem);letter-spacing:-.06em;line-height:1.03;margin:14px 0 20px;max-width:700px}.section-intro{color:#64728c;max-width:550px;line-height:1.7}.services{background:var(--paper);color:#26033d}.head-row{display:flex;justify-content:space-between;gap:25px;align-items:end;margin-bottom:48px}.cards{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}.service{position:relative;min-height:220px;padding:25px;border-radius:14px;background:#fff;border:1px solid #eadff1;overflow:hidden;transition:.28s}.service:hover{transform:translateY(-6px);box-shadow:0 18px 35px rgba(81,0,121,.16)}.service:hover:before{transform:scale(1.15)}.service:before{content:"";position:absolute;width:110px;height:110px;right:-35px;bottom:-35px;border-radius:50%;background:#f5eaff;transition:.4s}.service:nth-child(1){grid-column:span 5;background:#4b0879;color:#fff}.service:nth-child(1):before{background:#7936a1}.service:nth-child(2){grid-column:span 3}.service:nth-child(3){grid-column:span 4;background:#f4ad18}.service:nth-child(3):before{background:#ffd766}.service:nth-child(4),.service:nth-child(5),.service:nth-child(6){grid-column:span 4}.number{position:relative;z-index:1;font:12px "DM Mono";opacity:.65}.service h3{position:relative;z-index:1;font-size:1.2rem;letter-spacing:-.03em;margin:43px 0 8px}.service p{position:relative;z-index:1;font-size:.88rem;line-height:1.6;margin:0;color:#63708a}.service:first-child p{color:#e1c9f3}.service:nth-child(3) p{color:#5f3d00}
+.about{position:relative;overflow:hidden;background:#330054}.about:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(244,173,24,.1) 1px,transparent 1px),linear-gradient(rgba(0,168,232,.09) 1px,transparent 1px);background-size:52px 52px;mask-image:linear-gradient(to bottom,black,transparent)}.about-grid{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:center}.about .overline{color:var(--cyan)}.about p{color:#dfd0e9;line-height:1.75}.stats{display:grid;grid-template-columns:1fr 1fr;gap:13px}.stat{padding:25px;border:1px solid var(--line);background:rgba(255,255,255,.04);border-radius:12px}.stat b{display:block;font-size:2.3rem;letter-spacing:-.07em;color:var(--lime)}.stat span{font-size:.78rem;color:#d3bbdf}
+
+.contact{background:#4b0879;color:#f6f8ff;padding:100px 0;position:relative}
+.contact-title-wrap{position:relative;margin-bottom:45px}
+.contact-title{font-size:clamp(2.8rem,5.5vw,4.5rem);letter-spacing:-.05em;color:#ffffff;margin:0;font-weight:800;position:relative;z-index:1}
+.contact-title-bg{position:absolute;top:-15px;left:0;font-size:clamp(3.5rem,7vw,6rem);color:rgba(255,255,255,.05);font-weight:900;letter-spacing:-.03em;user-select:none;pointer-events:none;white-space:nowrap}
+.contact-layout{display:grid;grid-template-columns:0.85fr 1.15fr;gap:55px;align-items:start}
+
+.contact-info p{color:#dfd0e9;font-size:1rem;line-height:1.75;margin-bottom:24px}
+.social-links{display:flex;gap:14px;margin:30px 0 35px}
+.social-icon{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.1);border:1px solid var(--line);color:#fff;display:flex;align-items:center;justify-content:center;font-size:0.85rem;font-weight:700;transition:.25s}
+.social-icon:hover{background:var(--lime);color:#0a1624;border-color:var(--lime);transform:translateY(-2px)}
+
+.info-block{margin-top:22px;border-top:1px solid var(--line);padding-top:18px}
+.info-block h4{font-size:.88rem;color:var(--lime);margin:0 0 8px;display:flex;align-items:center;gap:8px;font-family:"DM Mono",monospace}
+.info-block h4::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--cyan)}
+.info-block p{font-size:.88rem;color:#d3bbdf;margin:0 0 5px;line-height:1.5}
+
+.contact-card{background:rgba(248, 239, 239, 0.05);padding:35px;border-radius:18px;border:1px solid var(--line);box-shadow:0 20px 50px rgba(0,0,0,.25);backdrop-filter:blur(8px)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.form-group-full{grid-column:span 2}
+.field-group{display:flex;flex-direction:column;gap:6px}
+.field-group label{font-size:.8rem;font-weight:700;color:#e5d9f2;font-family:"DM Mono",monospace}
+.field-group input,.field-group select,.field-group textarea{width:100%;padding:13px 15px;background:rgba(255,255,255,.08);border:1px solid rgba(244,173,24,.3);border-radius:8px;font-family:inherit;font-size:.9rem;color:#ffffff;outline:none;transition:.2s}
+.field-group select option{background:#250344;color:#fff}
+.field-group input:focus,.field-group select:focus,.field-group textarea:focus{border-color:var(--lime);background:rgba(255,255,255,.12)}
+.field-group textarea{resize:vertical;min-height:110px}
+.btn-submit{margin-top:10px;background:var(--lime);color:#ffffff;border:none;padding:14px 28px;border-radius:8px;font-weight:800;font-size:.9rem;cursor:pointer;transition:.2s;display:inline-flex;align-items:center;gap:10px}
+.btn-submit:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(244,173,24,.3)}
+
+/* MODALE PROJET */
+.modal-overlay{position:fixed;inset:0;background:rgba(19,1,43,.85);backdrop-filter:blur(10px);z-index:999;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:.3s ease}
+.modal-overlay.active{opacity:1;pointer-events:all}
+.modal-box{background:linear-gradient(135deg,#340052,#250344);border:1px solid var(--line);border-radius:20px;padding:40px;width:min(580px,calc(100% - 32px));max-height:90vh;overflow-y:auto;position:relative;box-shadow:0 30px 80px rgba(0,0,0,.6);transform:scale(.92);transition:.3s ease}
+.modal-overlay.active .modal-box{transform:scale(1)}
+.modal-close{position:absolute;top:20px;right:20px;background:rgba(255,255,255,.1);border:none;color:#fff;width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:1.2rem;display:flex;align-items:center;justify-content:center;transition:.2s}
+.modal-close:hover{background:var(--lime);color:#0a1624}
+.modal-box h3{font-size:1.8rem;margin:0 0 10px;color:#fff;letter-spacing:-.03em}
+.modal-box p{color:#d3bbdf;font-size:.9rem;margin-bottom:25px;line-height:1.5}
+
+/* PAGE DE CONFIRMATION / NOTIFICATION */
+#confirmation-page{display:none;min-height:100vh;background:radial-gradient(circle at 50% 40%,#510079 0,transparent 50%),#250344;align-items:center;justify-content:center;text-align:center;padding:40px 20px}
+#confirmation-page.active{display:flex}
+.confirm-card{background:rgba(255,255,255,.05);border:1px solid var(--line);padding:50px 35px;border-radius:24px;max-width:560px;width:100%;box-shadow:0 30px 70px rgba(0,0,0,.4);backdrop-filter:blur(10px)}
+.confirm-icon{width:70px;height:70px;background:var(--lime);color:#0a1624;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2rem;font-weight:bold;margin:0 auto 25px;box-shadow:0 0 25px rgba(244,173,24,.4)}
+.confirm-card h2{font-size:2.2rem;color:#fff;margin:0 0 15px;letter-spacing:-.04em}
+.confirm-card p{color:#d3bbdf;font-size:1.05rem;line-height:1.6;margin-bottom:30px}
+
+/* BANDEAU DE COOKIES ET CONFIDENTIALITÉ */
+.cookie-banner{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);width:min(90%,900px);background:#250344;border:1px solid var(--line);padding:20px 25px;border-radius:16px;box-shadow:0 20px 50px rgba(0,0,0,.8);z-index:1000;display:none;align-items:center;justify-content:space-between;gap:20px;backdrop-filter:blur(12px)}
+.cookie-banner.active{display:flex}
+.cookie-text{font-size:.85rem;color:#d3bbdf;line-height:1.5}
+.cookie-text h4{margin:0 0 6px;color:#fff;font-size:1rem}
+.cookie-text a{color:var(--lime);text-decoration:underline}
+.cookie-btns{display:flex;gap:10px;flex-shrink:0}
+.cookie-btn{padding:10px 18px;border-radius:8px;font-size:.8rem;font-weight:700;cursor:pointer;border:none;transition:.2s}
+.cookie-btn.accept{background:var(--lime);color:#0a1624}
+.cookie-btn.decline{background:rgba(255,255,255,.1);color:#fff}
+.cookie-btn:hover{opacity:.9;transform:translateY(-1px)}
+
+footer{padding:26px 0;background:#250344;color:#c6a7d8;font:11px "DM Mono"}.footer-row{display:flex;justify-content:space-between;gap:18px}.reveal{opacity:0;transform:translateY(25px);transition:opacity .6s ease,transform .6s ease}.reveal.on{opacity:1;transform:none}@media(max-width:780px){.shell{width:min(100% - 34px,1180px)}.menu{display:flex;gap:12px;font-size:.78rem}.hero{min-height:auto}.hero-main,.about-grid,.contact-layout{grid-template-columns:1fr;gap:45px;padding:40px 0}.console{transform:none}.hero-foot{font-size:9px}.head-row{display:block}.cards .service{grid-column:span 12}.about-grid{padding:0}.stats{gap:10px}.form-grid{grid-template-columns:1fr}.form-group-full{grid-column:span 1}.cookie-banner{flex-direction:column;align-items:flex-start}section{padding:75px 0}}
+</style></head>
+<body>
+
+<div id="main-content">
+  <section class="hero" id="accueil"><canvas id="universe"></canvas><div class="shell"><nav><a class="brand" href="#accueil" aria-label="Benin Innov Tech"><span class="logo-frame"><img src="benin-innov-tech-logo-cropped.jpg" alt="Logo Benin Innov Tech"></span></a><div class="menu"><a href="#services" data-i18n="nav_services">Expertises</a><a href="#apropos" data-i18n="nav_about">Notre vision</a><a class="nav-cta" href="#contact" data-i18n="nav_contact">Nous contacter ↗</a><div class="lang-switch"><span class="lang-btn active" onclick="setLanguage('fr')">FR</span><span class="lang-btn" onclick="setLanguage('en')">EN</span></div></div></nav><div class="hero-main"><div><div class="kicker"><i class="pulse"></i> <span data-i18n="hero_kicker">Votre partenaire numérique au Bénin</span></div><h1><span data-i18n="hero_h1_part1">Faisons de la technologie votre </span><span class="grad" data-i18n="hero_h1_part2">meilleur atout.</span></h1><p class="intro" data-i18n="hero_intro">Nous concevons, déployons et sécurisons les solutions informatiques qui donnent à vos projets une vraie longueur d’avance.</p><div class="actions"><button class="button primary" onclick="openModal()"><span data-i18n="btn_start">Démarrer un projet</span> <span class="arrow">→</span></button><a class="button secondary" href="#services" data-i18n="btn_explore">Explorer nos expertises</a></div></div><div class="console"><div class="console-top"><span>BENIN-INNOV-TECH / CORE</span><span class="dots"><i></i><i></i><i></i></span></div><div class="screen"><small>SYS.STATUS // OPTIMIZED</small><div class="status"><span data-i18n="console_status_label">Votre projet numérique</span><strong data-i18n="console_status_val">Prêt.</strong></div><div class="bar"><i></i></div><div class="mini-grid"><div class="mini"><span data-i18n="console_m1_label">SOLUTIONS</span><b data-i18n="console_m1_val">Sur mesure</b></div><div class="mini"><span data-i18n="console_m2_label">SUPPORT</span><b data-i18n="console_m2_val">Réactif</b></div></div></div></div></div><div class="hero-foot"><span data-i18n="hero_foot_loc">ABOMEY-CALAVI · BÉNIN</span><span data-i18n="hero_foot_motto">INNOVER • CONNECTER • PROGRESSER</span></div></div></section>
+  <div class="strip"><div class="ticker" id="ticker-text">DÉVELOPPEMENT WEB &nbsp; ✦ &nbsp; RÉSEAUX & INFRASTRUCTURE &nbsp; ✦ &nbsp; CYBERSÉCURITÉ &nbsp; ✦ &nbsp; MAINTENANCE INFORMATIQUE &nbsp; ✦ &nbsp; CONSEIL IT &nbsp; ✦ &nbsp; DÉVELOPPEMENT WEB &nbsp; ✦ &nbsp; RÉSEAUX & INFRASTRUCTURE &nbsp; ✦ &nbsp; CYBERSÉCURITÉ &nbsp; ✦ &nbsp; MAINTENANCE INFORMATIQUE &nbsp; ✦ &nbsp; CONSEIL IT &nbsp; ✦ &nbsp;</div></div>
+  <section class="services" id="services"><div class="shell"><div class="head-row reveal"><div><div class="overline" data-i18n="services_overline">Nos expertises</div><h2 data-i18n="services_h2">Votre univers digital, maîtrisé.</h2></div><p class="section-intro" data-i18n="services_intro">Un accompagnement global, de l’idée à la performance de vos outils informatiques.</p></div><div class="cards"><article class="service reveal"><span class="number">01 / DIGITAL</span><h3 data-i18n="s1_title">Développement web</h3><p data-i18n="s1_desc">Sites, plateformes et applications élégantes, rapides et pensés pour vos objectifs.</p></article><article class="service reveal"><span class="number">02 / NETWORK</span><h3 data-i18n="s2_title">Réseaux & infrastructure</h3><p data-i18n="s2_desc">Un environnement connecté, stable et prêt à évoluer.</p></article><article class="service reveal"><span class="number">03 / CARE</span><h3 data-i18n="s3_title">Maintenance IT</h3><p data-i18n="s3_desc">Diagnostic, réparation et optimisation de vos équipements.</p></article><article class="service reveal"><span class="number">04 / ADVISORY</span><h3 data-i18n="s4_title">Conseil informatique</h3><p data-i18n="s4_desc">Les bonnes décisions technologiques pour votre activité.</p></article><article class="service reveal"><span class="number">05 / SHIELD</span><h3 data-i18n="s5_title">Cybersécurité</h3><p data-i18n="s5_desc">Protégez vos données et renforcez votre environnement numérique.</p></article><article class="service reveal"><span class="number">06 / LEARN</span><h3 data-i18n="s6_title">Formation numérique</h3><p data-i18n="s6_desc">Développez les compétences digitales de vos équipes.</p></article></div></div></section>
+  <section class="about" id="apropos"><div class="shell about-grid"><div class="reveal"><div class="overline" data-i18n="about_overline">Notre engagement</div><h2 data-i18n="about_h2">Une expertise qui se voit. Un service qui se ressent.</h2><p data-i18n="about_p">Installée à Agassa-Godomey, Benin Innov Tech transforme les besoins informatiques en solutions concrètes et durables. Notre méthode est simple : écouter, comprendre, créer et vous accompagner dans la durée.</p></div><div class="stats reveal"><div class="stat"><b>360°</b><span data-i18n="st1">Une expertise informatique complète</span></div><div class="stat"><b>Local</b><span data-i18n="st2">Un partenaire proche de vous</span></div><div class="stat"><b>Agile</b><span data-i18n="st3">Des solutions pensées pour vos besoins</span></div><div class="stat"><b>Smart</b><span data-i18n="st4">L’innovation au service de l’efficacité</span></div></div></div></section>
+
+  <section class="contact" id="contact">
+    <div class="shell">
+      <div class="contact-title-wrap reveal">
+        <span class="contact-title-bg">CONTACT</span>
+        <h2 class="contact-title" data-i18n="contact_title">Contactez-nous</h2>
+      </div>
+      
+      <div class="contact-layout reveal">
+        <div class="contact-info">
+          <p data-i18n="contact_p1">Vous recherchez une <strong>agence digitale</strong> qui construit avec vous votre projet et qui s'adapte à tous vos supports de communication ?</p>
+          <p data-i18n="contact_p2"><strong>Nous sommes à votre écoute !</strong></p>
+          
+          <div class="social-links">
+            <a href="#" class="social-icon" aria-label="Facebook">f</a>
+            <a href="#" class="social-icon" aria-label="Instagram">in</a>
+            <a href="#" class="social-icon" aria-label="LinkedIn">li</a>
+            <a href="https://wa.me/22995796556" target="_blank" class="social-icon" aria-label="WhatsApp">wa</a>
+          </div>
+
+          <div class="info-block">
+            <h4 data-i18n="info_addr_title">Adresse</h4>
+            <p>Benin Innov Tech</p>
+            <p>00 229 95 79 65 56</p>
+            <p data-i18n="info_addr_loc">Agassa-Godomey, Abomey-Calavi, Bénin</p>
+          </div>
+
+          <div class="info-block">
+            <h4 data-i18n="info_prat_title">Informations pratiques</h4>
+            <p>benininnovtech@gmail.com</p>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <form onsubmit="handleDirectContact(event)">
+            <div class="form-grid">
+              <div class="field-group">
+                <label data-i18n="lbl_name">Nom *</label>
+                <input type="text" name="nom" required>
+              </div>
+              <div class="field-group">
+                <label data-i18n="lbl_email">Email *</label>
+                <input type="email" name="email" required>
+              </div>
+              <div class="field-group">
+                <label data-i18n="lbl_phone">Téléphone *</label>
+                <input type="tel" name="phone" required>
+              </div>
+              <div class="field-group">
+                <label data-i18n="lbl_company">Nom de la société</label>
+                <input type="text" name="societe">
+              </div>
+              <div class="field-group form-group-full">
+                <label data-i18n="lbl_subject">Sujet</label>
+                <select name="sujet">
+                  <option data-i18n="opt_1">Demande d'informations</option>
+                  <option data-i18n="opt_2">Développement Web</option>
+                  <option data-i18n="opt_3">Réseaux & Cybersécurité</option>
+                  <option data-i18n="opt_4">Autre demande</option>
+                </select>
+              </div>
+              <div class="field-group form-group-full">
+                <label data-i18n="lbl_msg">Votre message</label>
+                <textarea name="message"></textarea>
+              </div>
+            </div>
+            <button type="submit" class="btn-submit"><span data-i18n="btn_send">Envoyer le message</span> <span class="arrow">→</span></button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="shell footer-row">
+      <span>© 2026 BENIN INNOV TECH</span>
+      <span><a href="javascript:void(0)" onclick="resetCookieConsent()" style="color:var(--muted); text-decoration:underline;" data-i18n="cookie_manage">Gestion des cookies</a></span>
+    </div>
+  </footer>
+</div>
+
+<!-- PAGE DE CONFIRMATION APPRÈS SOUMISSION DU PROJET -->
+<div id="confirmation-page">
+  <div class="confirm-card">
+    <div class="confirm-icon">✓</div>
+    <h2 data-i18n="confirm_h2">Demande reçue !</h2>
+    <p data-i18n="confirm_p">Votre projet a été transmis avec succès à nos équipes. Un accusé de réception et une réponse détaillée vous seront envoyés très prochainement <strong>par e-mail</strong>.</p>
+    <button class="button primary" onclick="goToHome()"><span data-i18n="confirm_btn">Retour à l'accueil</span> <span class="arrow">→</span></button>
+  </div>
+</div>
+
+<!-- MODALE DÉMARRER UN PROJET -->
+<div class="modal-overlay" id="projectModal" onclick="if(event.target===this)closeModal()">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <h3 data-i18n="modal_title">Parlez-nous de votre projet</h3>
+    <p data-i18n="modal_desc">Présentez-vous rapidement et décrivez votre besoin, nous vous recontacterons sous 24h.</p>
+    
+    <form onsubmit="handleProjectSubmit(event)">
+      <div class="form-grid">
+        <div class="field-group">
+          <label data-i18n="lbl_name">Nom complet *</label>
+          <input type="text" name="nom" required>
+        </div>
+        <div class="field-group">
+          <label data-i18n="lbl_email">Email *</label>
+          <input type="email" name="email" required>
+        </div>
+        <div class="field-group">
+          <label data-i18n="lbl_phone">Téléphone / WhatsApp *</label>
+          <input type="tel" name="phone" required>
+        </div>
+        <div class="field-group">
+          <label data-i18n="modal_lbl_service">Type de projet *</label>
+          <select name="type_projet" required>
+            <option data-i18n="opt_2">Développement Web</option>
+            <option data-i18n="opt_3">Réseaux & Cybersécurité</option>
+            <option data-i18n="s3_title">Maintenance IT</option>
+            <option data-i18n="s4_title">Conseil informatique</option>
+            <option data-i18n="opt_4">Autre</option>
+          </select>
+        </div>
+        <div class="field-group form-group-full">
+          <label data-i18n="modal_lbl_desc">Description du projet *</label>
+          <textarea name="description" placeholder="..." required></textarea>
+        </div>
+      </div>
+      <button type="submit" class="btn-submit" style="width:100%; justify-content:center; margin-top:20px;">
+        <span data-i18n="modal_btn_submit">Soumettre le projet</span> <span class="arrow">→</span>
+      </button>
+    </form>
+  </div>
+</div>
+
+<!-- BANDEAU DE COOKIES ET CONFIDENTIALITÉ -->
+<div class="cookie-banner" id="cookieBanner">
+  <div class="cookie-text">
+    <h4 data-i18n="cookie_title">Respect de votre vie privée</h4>
+    <span data-i18n="cookie_desc">Nous utilisons des cookies et collectons vos données de contact uniquement pour traiter vos demandes et vous recontacter. En poursuivant votre navigation, vous acceptez notre politique de confidentialité.</span>
+  </div>
+  <div class="cookie-btns">
+    <button class="cookie-btn decline" onclick="setCookieConsent(false)" data-i18n="cookie_decline">Refuser</button>
+    <button class="cookie-btn accept" onclick="setCookieConsent(true)" data-i18n="cookie_accept">Tout accepter</button>
+  </div>
+</div>
+
+<script>
+const translations = {
+  fr: {
+    nav_services: "Expertises", nav_about: "Notre vision", nav_contact: "Nous contacter ↗",
+    hero_kicker: "Votre partenaire numérique au Bénin", hero_h1_part1: "Faisons de la technologie votre ", hero_h1_part2: "meilleur atout.",
+    hero_intro: "Nous concevons, déployons et sécurisons les solutions informatiques qui donnent à vos projets une vraie longueur d’avance.",
+    btn_start: "Démarrer un projet", btn_explore: "Explorer nos expertises",
+    console_status_label: "Votre projet numérique", console_status_val: "Prêt.",
+    console_m1_label: "SOLUTIONS", console_m1_val: "Sur mesure", console_m2_label: "SUPPORT", console_m2_val: "Réactif",
+    hero_foot_loc: "ABOMEY-CALAVI · BÉNIN", hero_foot_motto: "INNOVER • CONNECTER • PROGRESSER",
+    ticker: "DÉVELOPPEMENT WEB &nbsp; ✦ &nbsp; RÉSEAUX & INFRASTRUCTURE &nbsp; ✦ &nbsp; CYBERSÉCURITÉ &nbsp; ✦ &nbsp; MAINTENANCE INFORMATIQUE &nbsp; ✦ &nbsp; CONSEIL IT &nbsp; ✦ &nbsp; ",
+    services_overline: "Nos expertises", services_h2: "Votre univers digital, maîtrisé.", services_intro: "Un accompagnement global, de l’idée à la performance de vos outils informatiques.",
+    s1_title: "Développement web", s1_desc: "Sites, plateformes et applications élégantes, rapides et pensés pour vos objectifs.",
+    s2_title: "Réseaux & infrastructure", s2_desc: "Un environnement connecté, stable et prêt à évoluer.",
+    s3_title: "Maintenance IT", s3_desc: "Diagnostic, réparation et optimisation de vos équipements.",
+    s4_title: "Conseil informatique", s4_desc: "Les bonnes décisions technologiques pour votre activité.",
+    s5_title: "Cybersécurité", s5_desc: "Protégez vos données et renforcez votre environnement numérique.",
+    s6_title: "Formation numérique", s6_desc: "Développez les compétences digitales de vos équipes.",
+    about_overline: "Notre engagement", about_h2: "Une expertise qui se voit. Un service qui se ressent.",
+    about_p: "Installée à Agassa-Godomey, Benin Innov Tech transforme les besoins informatiques en solutions concrètes et durables. Notre méthode est simple : écouter, comprendre, créer et vous accompagner dans la durée.",
+    st1: "Une expertise informatique complète", st2: "Un partenaire proche de vous", st3: "Des solutions pensées pour vos besoins", st4: "L’innovation au service de l’efficacité",
+    contact_title: "Contactez-nous",
+    contact_p1: "Vous recherchez une <strong>agence digitale</strong> qui construit avec vous votre projet et qui s'adapte à tous vos supports de communication ?",
+    contact_p2: "<strong>Nous sommes à votre écoute !</strong>",
+    info_addr_title: "Adresse", info_addr_loc: "Agassa-Godomey, Abomey-Calavi, Bénin",
+    info_prat_title: "Informations pratiques",
+    lbl_name: "Nom complet *", lbl_email: "Email *", lbl_phone: "Téléphone *", lbl_company: "Nom de la société",
+    lbl_subject: "Sujet", lbl_msg: "Votre message", btn_send: "Envoyer le message",
+    opt_1: "Demande d'informations", opt_2: "Développement Web", opt_3: "Réseaux & Cybersécurité", opt_4: "Autre demande",
+    modal_title: "Parlez-nous de votre projet", modal_desc: "Présentez-vous rapidement et décrivez votre besoin, nous vous recontacterons sous 24h.",
+    modal_lbl_service: "Type de projet *", modal_lbl_desc: "Description du projet *", modal_btn_submit: "Soumettre le projet",
+    confirm_h2: "Demande reçue !", confirm_p: "Votre projet a été transmis avec succès à nos équipes. Un accusé de réception et une réponse détaillée vous seront envoyés très prochainement <strong>par e-mail</strong>.", confirm_btn: "Retour à l'accueil",
+    cookie_title: "Respect de votre vie privée", cookie_desc: "Nous utilisons des cookies et collectons vos données de contact uniquement pour traiter vos demandes et vous recontacter. En poursuivant votre navigation, vous acceptez notre politique de confidentialité.",
+    cookie_accept: "Tout accepter", cookie_decline: "Refuser", cookie_manage: "Gestion des cookies",
+    cookie_alert: "Veuillez accepter la politique de confidentialité pour envoyer votre demande."
+  },
+  en: {
+    nav_services: "Services", nav_about: "Our Vision", nav_contact: "Contact us ↗",
+    hero_kicker: "Your digital partner in Benin", hero_h1_part1: "Let's make technology your ", hero_h1_part2: "greatest asset.",
+    hero_intro: "We design, deploy, and secure IT solutions that give your projects a real competitive edge.",
+    btn_start: "Start a project", btn_explore: "Explore our expertise",
+    console_status_label: "Your digital project", console_status_val: "Ready.",
+    console_m1_label: "SOLUTIONS", console_m1_val: "Custom-built", console_m2_label: "SUPPORT", console_m2_val: "Responsive",
+    hero_foot_loc: "ABOMEY-CALAVI · BENIN", hero_foot_motto: "INNOVATE • CONNECT • GROW",
+    ticker: "WEB DEVELOPMENT &nbsp; ✦ &nbsp; NETWORKS & INFRASTRUCTURE &nbsp; ✦ &nbsp; CYBERSECURITY &nbsp; ✦ &nbsp; IT MAINTENANCE &nbsp; ✦ &nbsp; IT CONSULTING &nbsp; ✦ &nbsp; ",
+    services_overline: "Our Expertise", services_h2: "Your digital universe, mastered.", services_intro: "Comprehensive support, from idea to peak performance of your IT tools.",
+    s1_title: "Web Development", s1_desc: "Elegant, fast websites, platforms, and apps built for your goals.",
+    s2_title: "Networks & Infrastructure", s2_desc: "A connected, stable environment ready to scale.",
+    s3_title: "IT Maintenance", s3_desc: "Diagnostics, repair, and optimization for your hardware.",
+    s4_title: "IT Consulting", s4_desc: "Making the right technological choices for your business.",
+    s5_title: "Cybersecurity", s5_desc: "Protect your data and strengthen your digital environment.",
+    s6_title: "Digital Training", s6_desc: "Empower your teams with key digital skills.",
+    about_overline: "Our Commitment", about_h2: "Visible expertise. A service you can feel.",
+    about_p: "Based in Agassa-Godomey, Benin Innov Tech turns IT challenges into concrete, sustainable solutions. Our method: listen, understand, create, and support you for the long run.",
+    st1: "End-to-end IT expertise", st2: "A partner close to you", st3: "Tailored solutions for your needs", st4: "Innovation serving efficiency",
+    contact_title: "Contact Us",
+    contact_p1: "Looking for a <strong>digital agency</strong> that builds your project with you and adapts to all communication channels?",
+    contact_p2: "<strong>We are at your service!</strong>",
+    info_addr_title: "Address", info_addr_loc: "Agassa-Godomey, Abomey-Calavi, Benin",
+    info_prat_title: "Practical Information",
+    lbl_name: "Full Name *", lbl_email: "Email *", lbl_phone: "Phone *", lbl_company: "Company Name",
+    lbl_subject: "Subject", lbl_msg: "Your Message", btn_send: "Send Message",
+    opt_1: "Information Request", opt_2: "Web Development", opt_3: "Networks & Cybersecurity", opt_4: "Other Request",
+    modal_title: "Tell us about your project", modal_desc: "Introduce yourself and describe your needs, we will contact you within 24 hours.",
+    modal_lbl_service: "Project Type *", modal_lbl_desc: "Project Description *", modal_btn_submit: "Submit Project",
+    confirm_h2: "Request Received!", confirm_p: "Your project has been successfully sent to our team. A confirmation and detailed response will be sent to you shortly <strong>by email</strong>.", confirm_btn: "Back to Home",
+    cookie_title: "Respect for your privacy", cookie_desc: "We use cookies and collect contact information solely to handle your requests. By continuing to browse, you accept our privacy policy.",
+    cookie_accept: "Accept All", cookie_decline: "Decline", cookie_manage: "Cookie Settings",
+    cookie_alert: "Please accept the privacy policy to submit your request."
+  }
+};
+
+let currentLang = 'fr';
+
+function checkCookieConsent() {
+  const consent = localStorage.getItem('cookieConsent');
+  if (consent === null) {
+    document.getElementById('cookieBanner').classList.add('active');
+  }
+}
+
+function setCookieConsent(accepted) {
+  localStorage.setItem('cookieConsent', accepted ? 'accepted' : 'declined');
+  document.getElementById('cookieBanner').classList.remove('active');
+}
+
+function resetCookieConsent() {
+  localStorage.removeItem('cookieConsent');
+  document.getElementById('cookieBanner').classList.add('active');
+}
+
+function openModal(){ document.getElementById('projectModal').classList.add('active'); }
+function closeModal(){ document.getElementById('projectModal').classList.remove('active'); }
+
+function handleProjectSubmit(e) {
+  e.preventDefault();
+  if (localStorage.getItem('cookieConsent') === 'declined') {
+    alert(translations[currentLang].cookie_alert);
+    return;
+  }
+  closeModal();
+  document.getElementById('main-content').style.display = 'none';
+  document.getElementById('confirmation-page').classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+function handleDirectContact(e) {
+  e.preventDefault();
+  if (localStorage.getItem('cookieConsent') === 'declined') {
+    alert(translations[currentLang].cookie_alert);
+    return;
+  }
+  document.getElementById('main-content').style.display = 'none';
+  document.getElementById('confirmation-page').classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+function goToHome() {
+  document.getElementById('confirmation-page').classList.remove('active');
+  document.getElementById('main-content').style.display = 'block';
+  window.scrollTo(0, 0);
+}
+
+function setLanguage(lang) {
+  currentLang = lang;
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (translations[lang][key]) el.innerHTML = translations[lang][key];
+  });
+  const tickerStr = translations[lang].ticker;
+  document.getElementById('ticker-text').innerHTML = tickerStr.repeat(2);
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.innerText.toLowerCase() === lang);
+  });
+}
+
+// Initialisation au chargement
+window.addEventListener('DOMContentLoaded', () => {
+  checkCookieConsent();
+});
+
+const c=document.getElementById('universe'),x=c.getContext('2d');let p=[];function fit(){c.width=innerWidth;c.height=c.parentElement.offsetHeight;p=Array.from({length:Math.min(95,innerWidth/12)},()=>({x:Math.random()*c.width,y:Math.random()*c.height,vx:(Math.random()-.5)*.32,vy:(Math.random()-.5)*.32,r:Math.random()*1.6+.3}))}function draw(){x.clearRect(0,0,c.width,c.height);for(let i=0;i<p.length;i++){let a=p[i];a.x+=a.vx;a.y+=a.vy;if(a.x<0||a.x>c.width)a.vx*=-1;if(a.y<0||a.y>c.height)a.vy*=-1;x.beginPath();x.fillStyle='rgba(126,223,255,.7)';x.arc(a.x,a.y,a.r,0,7);x.fill();for(let j=i+1;j<p.length;j++){let b=p[j],d=Math.hypot(a.x-b.x,a.y-b.y);if(d<110){x.beginPath();x.strokeStyle=`rgba(105,180,255,${.13*(1-d/110)})`;x.moveTo(a.x,a.y);x.lineTo(b.x,b.y);x.stroke()}}}requestAnimationFrame(draw)}fit();draw();addEventListener('resize',fit);document.querySelectorAll('.reveal').forEach(el=>new IntersectionObserver(e=>e.forEach(v=>v.isIntersecting&&v.target.classList.add('on')),{threshold:.12}).observe(el));
+</script></body></html>
